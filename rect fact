@@ -1,0 +1,27 @@
+class FactorialCalculator:
+    def __init__(self):
+        pass
+
+    def calculate_factorial(self, n):
+        if n == 0 or n == 1:
+            return 1
+        else:
+            return n * self.calculate_factorial(n - 1)
+
+    def print_factorial_recursion(self, n):
+        print(f"The recursion for calculating {n}! is:")
+        self.print_factorial_recursion_helper(n)
+
+    def print_factorial_recursion_helper(self, n, indent=0):
+        if n == 0 or n == 1:
+            print(f"{' ' * indent}1")
+        else:
+            print(f"{' ' * indent}{n} *")
+            self.print_factorial_recursion_helper(n - 1, indent + 4)
+
+# Example usage:
+factorial_calculator = FactorialCalculator()
+number = int(input("Enter a number to calculate its factorial: "))
+factorial_calculator.print_factorial_recursion(number)
+result = factorial_calculator.calculate_factorial(number)
+print(f"The factorial of {number} is: {result}")
