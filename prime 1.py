@@ -46,20 +46,20 @@
 
 # # number palindrome
 
-# def is_pallindrome(num):
-#     original_num = num  ## it store the original number
-#     reversed_num = 0
-#     while num > 0:
-#         digit = num % 10  # extract the last digit
-#         reversed_num = reversed_num * 10 + digit
-#         num = num//10 # integer division by zero
+def is_pallindrome(num):
+    original_num = num  ## it store the original number
+    reversed_num = 0
+    while num > 0:
+        digit = num % 10  # extract the last digit
+        reversed_num = reversed_num * 10 + digit
+        num = num//10 # integer division by zero
 
-#     return original_num == reversed_num
-# number = int(input("Enter the number:"))
-# if is_pallindrome(number):
-#     print(f"The {number} is pallindrome")
-# else:
-#     print(f"The {number} is not pallindrome")
+    return original_num == reversed_num
+number = int(input("Enter the number:"))
+if is_pallindrome(number):
+    print(f"The {number} is pallindrome")
+else:
+    print(f"The {number} is not pallindrome")
 
 
 # # Find the largest elements in a list
@@ -111,3 +111,8 @@ for i in range(1, n+1):
 n = 5
 for i in range(1, n+1):
     print(' ' * (n - 1) + '*' * (2 * i - 1))
+
+
+
+
+

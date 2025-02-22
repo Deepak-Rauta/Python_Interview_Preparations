@@ -7,3 +7,5 @@ def remove_duplicate(lst):
 lst = [10, 20, 40, 60, 20, 10]
 result = remove_duplicate(lst)
 print(result)
+
+

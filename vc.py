@@ -11,3 +11,12 @@
 # print("Consonants:", c_count)
 
       
+def pallindrome(str):
+    s = str.lower()
+    return s == s[::-1]
+string = input("Enter the string:")
+if pallindrome(string):
+    print(f"The {string} is pallindorm")
+else:
+    print(f"The string is not a pallindome")
+

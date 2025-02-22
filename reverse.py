@@ -31,6 +31,6 @@ class Solution:
     def reverse_string(self, n):
         return n[::-1]
 solution_instance = Solution()
-original_string = "Deepak"
+original_string = "the sky is blue"
 reversed_string = solution_instance.reverse_string(original_string) 
 print(f'{reversed_string}')   

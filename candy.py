@@ -8,7 +8,7 @@
 class Solution:
     def Candy(self, ratings):
         n = len(ratings)
-        candies = [1] * n # Ensure that each children get atleast one candy
+        candies = [1] * n # Ensure that each children get atleast one candy thta is [1,1,1]
         # Left to Right pass
         for i in range(1, n):
             if ratings[i] > ratings[i-1]:
@@ -21,3 +21,8 @@ class Solution:
 ratings = [1, 0, 2]
 solution_instance = Solution()
 print(solution_instance.Candy(ratings))
+
+
+# From right to left 
+# for i in range(n-2, -1, -1)
+# (start, stop, step)

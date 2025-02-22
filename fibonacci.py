@@ -41,44 +41,53 @@
 
 
 
-class Fibonacci:
-    def __init__(self):
-        self.memo = {}
-    def calculate(self, n):
-            """calculate the nth fibonacci number using recuression"""
-            if n <= 0:
-                return """please enter a positive integer"""
-            elif n == 1:
-                return 0
-            elif n == 2:
-                return 1
-            elif n in self.memo:
-                return self.memo[n]
-            else:
-                result = self.calculate(n-1) + self.calculate(n-2)
-                self.memo[n] = result
-                return result
-fibonacci_calculator = Fibonacci()
-try:
-    term = int(input("Enter the no. of term:"))
-    result = fibonacci_calculator.calculate(term)
-    print(f'The fibonacci number at position {term} is {result}')   
-except ValueError:
-    print('please enter a valid number')             
-            
-            
-def fibonacci_series(n):
-    """Function to print Fibonacci series up to n terms."""
-    a, b = 0, 1
-    for _ in range(n):
-        print(a, end=" ")
+# class Fibonacci:
+#     def __init__(self):
+#         self.memo = {}
+#     def calculate(self, n):
+#             """calculate the nth fibonacci number using recuression"""
+#             if n <= 0:
+#                 return """please enter a positive integer"""
+#             elif n == 1:
+#                 return 0
+#             elif n == 2:
+#                 return 1
+#             elif n in self.memo:
+#                 return self.memo[n]
+#             else:
+#                 result = self.calculate(n-1) + self.calculate(n-2)
+#                 self.memo[n] = result
+#                 return result
+# fibonacci_calculator = Fibonacci()
+# try:
+#     term = int(input("Enter the no. of term:"))
+#     result = fibonacci_calculator.calculate(term)
+#     print(f'The fibonacci number at position {term} is {result}')   
+# except ValueError:
+#     print('please enter a valid number')             
+
+
+
+
+# def fibonacci_series(n):
+#     """Function to print Fibonacci series up to n terms."""
+#     a, b = 0, 1
+#     for _ in range(n):
+#         print(a, end=" ")
+#         a, b = b, a + b
+
+# # Main code
+# if __name__ == "__main__":
+#     n = int(input("Enter the number of terms: "))
+#     fibonacci_series(n)
+
+def fibonacci_math(n):
+    a, b = 1, 1  # Fibonacci starts from 1
+    for _ in range(n - 2):
         a, b = b, a + b
+    return b
 
-# Main code
-if __name__ == "__main__":
-    n = int(input("Enter the number of terms: "))
-    fibonacci_series(n)
-
+print(fibonacci_math(5))  # Output: 5
 
 
 
