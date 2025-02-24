@@ -37,7 +37,8 @@ result = count_string(string, sub_string)
 print(result)
 
 
-
+s = "barfoothefoobarman"
+print(len(s))
 
 
 
