@@ -17,3 +17,5 @@ s = "barfoothefoobarman"
 words = ["foo","bar"]
 solution_instance = Solution()
 print(solution_instance.ConcatAllWords(s, words))
+
+

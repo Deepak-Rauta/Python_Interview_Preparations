@@ -35,3 +35,14 @@ def palindrome_substrings(string):
 string = "ababa"
 result = palindrome_substrings(string)
 print("Palindrome substrings:", result)
+
+
+# Normal palindrome problems
+class Solution:
+    def IsPalindriome(self, x):
+        return str(x) == str(x)[::-1]
+
+string = 121
+obj = Solution()
+print(obj.IsPalindriome(string))
+                                
