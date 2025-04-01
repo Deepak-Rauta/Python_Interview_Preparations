@@ -1,18 +1,15 @@
 class Solution:
-    def twosum(self, numbers, target):
-        # Take two pointers
-        left, right = 0, len(numbers) - 1
+    def TwoSum(self, num, target):
+        left, right = 0, len(num)-1
         while left < right:
-            total = numbers[left] + numbers[right]
+            total = num[left] + num[right]
             if total == target:
                 return [left+1, right+1]
-            elif total < left:
+            elif total < target:
                 left += 1
             else:
                 right -= 1
-numbers = [2, 7, 11, 15]
-target = 9
+Numbers = [2, 7, 11, 15]
+Target = 9
 obj = Solution()
-print(obj.twosum(numbers, target))
-
-
+print(obj.TwoSum(Numbers, Target))
