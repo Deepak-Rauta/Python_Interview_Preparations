@@ -1,7 +1,13 @@
-def SumDigits(n):
-    sum_of_digit = 0
-    while n > 0:
-        sum_of_digit += n % 10 # Get the last digits
-        n // 10 # Remove the last digits
-    return sum_of_digit
-print(SumDigits(123))
+class Solution:
+    def sumOfDigits(self, nums):
+        sum_of_digits = 0
+        while nums > 0:
+            sum_of_digits += nums % 10
+            nums //= 10
+        return sum_of_digits
+
+numbers = 123
+obj = Solution()
+print(obj.sumOfDigits(numbers))
+
+
