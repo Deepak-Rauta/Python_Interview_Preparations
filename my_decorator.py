@@ -259,3 +259,31 @@ print(get_predictions())
 """🧠 Interview One-Liner (MEMORIZE)
 
 “Decorators can intercept and modify a function’s return value, which is useful for post-processing model outputs.”"""
+
+# 🟡 Example: REALISTIC Production-Style Version
+from functools import wraps
+import logging
+
+logger = logging.getLogger(__name__)
+
+def standardize_output(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        data = func(*args, **kwargs)
+
+        if not isinstance(data, (list, tuple)):
+            raise TypeError("Expected list or tule")
+        if not data:
+            logger.warning("Empty output received...")
+            return []
+        max_value = max(data)
+        if max_value == 0:
+            return data
+        
+        return [x / max_value for x in data]
+    return wrapper
+
+@standardize_output
+def get_predictions():
+    return [10, 20, 30, 100]
+print(get_predictions())
