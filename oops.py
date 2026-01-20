@@ -250,3 +250,108 @@ class User:
 u = User("Elon Musk")
 print(u.first)  # Output: Elon
 print(u.last)   # Output: Musk      
+
+"""Interview Problem 4: Enforcing Types (Senior Level)
+Scenario: You are building a physics simulation. The Task: Create a class Particle.
+
+__init__ takes mass (float) and velocity (float).
+
+Crucial: You must ensure mass is never negative. If the user passes a negative mass, raise a ValueError with the message "Mass cannot be negative".
+
+Assign the values to self.mass and self.velocity."""
+
+class Particle:
+    def __init__(self, mass, velocity):
+        # Validation logic
+        if mass < 0:
+            raise ValueError("Mass can not be negative!")
+
+        self.mass = mass
+        self.velocity = velocity
+
+# Test:-1
+p1 = Particle(10, 50)
+print(p1.mass)
+
+# Test:-2 Invalid (This will CRASH the script, which is good!)
+# p2 = Particle(-5, 20)
+# print(p2.velocity)
+
+
+"""Interview Problem 5: Composition (Building Objects from Objects)
+This is a critical Data Science concept. Models are often made of smaller pieces (encoders, scalers, etc.).
+
+Scenario:
+
+Create a class Engine with an __init__ that takes a horsepower (int) and stores it in self.hp.
+
+Create a class Car. Its __init__ should take a model (string) and an engine_obj (which is an instance of the Engine class).
+
+Inside Car, store engine_obj in self.engine.
+
+Test:
+
+Create an engine: e = Engine(400).
+
+Create a car: c = Car("Mustang", e).
+
+Print the car's horsepower by accessing c.engine.hp."""
+
+class Engine:
+    def __init__(self, horsepower):
+        self.hp = horsepower
+class Car:
+    def __init__(self, model, engine_obj):
+        self.model = model
+        self.engine = engine_obj # We store the WHOLE Engine object inside the car 
+
+# Usages
+# Step A: Build the engine first
+my_engine = Engine(300)
+
+# Step B: Build the car and put the engine inside it
+my_car = Car("Mustanf", my_engine)
+
+# Step C: Access Data
+# Go into 'my_car', find the 'engine' attribute, then find the 'hp' attribute inside that
+print(my_car.engine.hp)
+
+"""The Prompt:
+
+"We need a class to track Machine Learning experiments. Create a class called Experiment.
+
+It must be initialized with an experiment_name (string).
+
+It must also accept a list of metrics (e.g. ['accuracy', 'f1']). If no list is provided, it should default to an empty list (handle the mutable default bug!).
+
+It should have an attribute status that starts automatically as 'Not Started' (you don't pass this in __init__, you just set it).
+
+Inside __init__, validate that experiment_name is not empty. If it is "", raise a ValueError."""
+
+class Experiment:
+    def __init__(self, experiment_name, metrics=None):
+        # validation logic
+        # Check if the string is empty to handle edge cases
+        if experiment_name == "":
+            raise ValueError("Experiment name cannnot be empty!")
+        # Assigning the mandatory attributes
+        self.experiment_name = experiment_name
+
+        # handling the mutable default attributes
+        if metrics is None:
+            self.metrics = []
+        else:
+            self.metrics = metrics
+        # Setting an Automatic Default State
+        # The user doesn't pass this in; we set the starting state ourselves
+        self.status = "Not Started"
+
+exp1 = Experiment("LogReg_Baseline", metrics=["accuracy"])
+print(f"Name: {exp1.experiment_name}, Metrics: {exp1.metrics}, Status: {exp1.status}")
+
+# Test 2: Handling the default list
+exp2 = Experiment("RandomForest")
+print(f"Exp2 Metrics: {exp2.metrics}")
+        
+
+
