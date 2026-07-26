@@ -244,4 +244,84 @@ arr.pop(2)
 
 print(arr)
 
-# Here also time complexity is O(n) because elements are shift. 
+# Here also time complexity is O(n) because elements are shift.
+
+
+
+# Prefix Sum 
+# Insteaf of storing 
+# 2  4  1  3  5
+
+# Store:-
+# 2
+# 2 + 4 = 6
+# 6 + 1 = 7
+# 7 + 3 = 10
+# 10 + 5 = 15
+
+# So, prefix sum 
+[2, 6, 7, 10, 15]
+
+# Let's see how it builds
+# Pyhton code
+arr = [2, 4, 1, 3, 5]
+# Let's initialize an emty prefix list
+prefix = []
+running_sum = 0
+
+for num in arr:
+    running_sum += num
+    prefix.append(running_sum)
+
+print(prefix)
+
+
+# Cleaner Prefix Sum (Most Used in Interviews)
+# Instead of 2, 6, 7, 10, 15
+# Most people build 0, 2, 6, 7, 10, 15
+# Notice the extra 0 why? because the formual become easier. 
+
+# Build:-
+arr = [2, 4, 1, 3, 5]
+prefix = [0]
+
+for num in arr:
+    prefix.append(prefix[-1] + num)
+
+print(prefix)
+
+# Now the formula is always
+# Sum(left,right) = prefix[right+1] - prefix[left]
+
+# Time Complexity:-
+# Building Prefix Sum
+# O(n)
+# One Range Query
+# O(1)
+
+"""Where is Prefix Sum Used?
+
+Whenever you read these words in a LeetCode problem:
+
+Range Sum
+Continuous Subarray
+Sum between indices
+Many sum queries
+Running total
+Cumulative sum
+
+Think immediately:
+
+Can I use Prefix Sum?"""
+
+
+arr = [1, 2, 3, 4]
+# Let's initialize an emty prefix list
+prefix = []
+running_sum = 0
+
+for num in arr:
+    running_sum += num
+    prefix.append(running_sum)
+
+print(prefix)
